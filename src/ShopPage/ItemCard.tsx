@@ -4,7 +4,7 @@ export default function ItemCard() {
 	const [quantity, setQuantity] = useState(1);
 
 	const incrementInput = () => {
-		setQuantity((prevQuantity) => prevQuantity + 1);
+		setQuantity((prevQuantity) => (prevQuantity < 100 ? prevQuantity + 1 : 100));
 	};
 
 	const decrementInput = () => {
@@ -17,6 +17,8 @@ export default function ItemCard() {
 
 		if (isNaN(input) || input < 1) {
 			setQuantity(1);
+		} else if (input > 100) {
+			setQuantity(100);
 		} else {
 			setQuantity(input);
 		}

@@ -1,4 +1,5 @@
 import ItemCard from "./ItemCard";
+import { useState, useEffect } from "react";
 
 export default function ItemList() {
 	return (
