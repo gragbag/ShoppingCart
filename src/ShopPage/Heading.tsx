@@ -15,7 +15,7 @@ export default function Heading({ totalItems }: HeadingProps) {
 					{/* Shopping Cart Icon with Item Count */}
 					<Link to="#" className="relative p-2 rounded-full hover:bg-gray-200 transition">
 						<ShoppingCart className="w-6 h-6 text-gray-700" />
-						<span className="absolute -bottom-1 -right-1 bg-red-500 text-white text-xs font-bold px-1 py-0.25 rounded-full select-none">{totalItems}</span>
+						<span className="absolute -bottom-1.5 -right-1.5 bg-red-500 text-white text-xs font-bold px-1 py-0.25 rounded-full select-none">{totalItems > 100 ? "99+" : totalItems}</span>
 					</Link>
 
 					<Link to="#" className="text-gray-700 hover:text-gray-900 hover:underline">
