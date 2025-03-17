@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 
 export default function Heading({ totalItems }: HeadingProps) {
 	return (
-		<header className="bg-white shadow-md w-full">
+		<header className="bg-white shadow-md shadow-green-300 w-full sticky top-0">
 			<div className="container mx-auto px-6 py-4 flex justify-between items-center">
 				{/* Logo */}
 				<Link to="/" className="text-2xl font-bold text-gray-900 hover:underline">

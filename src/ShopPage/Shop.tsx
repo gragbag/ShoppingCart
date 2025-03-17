@@ -1,5 +1,6 @@
 import ItemCard from "./ItemCard";
 import Heading from "./Heading";
+import Footer from "../HomePage/Footer";
 import { useState, useEffect } from "react";
 
 export default function Shop() {
@@ -54,6 +55,7 @@ export default function Shop() {
 					return <ItemCard onClick={onClick} title={title} price={price} description={description} category={category} image={image} rating={rating} />;
 				})}
 			</div>
+			<Footer />
 		</>
 	);
 }
