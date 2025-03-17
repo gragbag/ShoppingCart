@@ -2,6 +2,7 @@ import React, { useState } from "react";
 
 export default function ItemCard({ title, price, description, category, image, rating, onClick }: ItemCardProps) {
 	const [quantity, setQuantity] = useState(1);
+	const [showPopup, setShowPopup] = useState(false);
 
 	const incrementInput = () => {
 		setQuantity((prevQuantity) => (prevQuantity < 100 ? prevQuantity + 1 : 100));
@@ -22,6 +23,12 @@ export default function ItemCard({ title, price, description, category, image, r
 		} else {
 			setQuantity(input);
 		}
+	};
+
+	const addPopup = () => {
+		setShowPopup(true);
+
+		setTimeout(() => setShowPopup(false), 3000);
 	};
 
 	return (
@@ -66,9 +73,23 @@ export default function ItemCard({ title, price, description, category, image, r
 				</div>
 			</div>
 
-			<button onClick={() => onClick(quantity)} className="w-full rounded-2xl bg-green-500 hover:bg-green-600 text-white font-semibold p-3 transition">
+			<button
+				onClick={() => {
+					addPopup();
+					onClick(quantity);
+				}}
+				className="w-full rounded-2xl bg-green-500 hover:bg-green-600 text-white font-semibold p-3 transition"
+			>
 				Add To Cart
 			</button>
+
+			{/* Small Popup at the Top of the Screen */}
+			{showPopup && (
+				<div className="fixed top-4 left-1/2 transform -translate-x-1/2 bg-green-500 text-white px-6 py-3 rounded-lg shadow-md z-50">
+					<p className="text-center font-semibold">Item added to cart!</p>
+					<p className="text-center">You added {quantity} item(s).</p>
+				</div>
+			)}
 		</div>
 	);
 }
