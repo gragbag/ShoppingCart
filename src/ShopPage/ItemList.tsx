@@ -36,7 +36,7 @@ export default function ItemList() {
 	console.log(catalog);
 
 	return (
-		<div className="bg-gray-700 flex flex-wrap gap-24 px-36 py-24">
+		<div className="bg-gray-700 flex flex-wrap gap-12 px-36 py-24 justify-center">
 			{catalog.map((item) => {
 				const { title, price, description, category, image, rating } = item;
 				return <ItemCard title={title} price={price} description={description} category={category} image={image} rating={rating} />;
