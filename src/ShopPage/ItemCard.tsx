@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-export default function ItemCard({ title, price, description, category, image, rating }: ItemCardProps) {
+export default function ItemCard({ title, price, description, category, image, rating, onClick }: ItemCardProps) {
 	const [quantity, setQuantity] = useState(1);
 
 	const incrementInput = () => {
@@ -66,7 +66,9 @@ export default function ItemCard({ title, price, description, category, image, r
 				</div>
 			</div>
 
-			<button className="w-full rounded-2xl bg-green-500 hover:bg-green-600 text-white font-semibold p-3 transition">Add To Cart</button>
+			<button onClick={() => onClick(quantity)} className="w-full rounded-2xl bg-green-500 hover:bg-green-600 text-white font-semibold p-3 transition">
+				Add To Cart
+			</button>
 		</div>
 	);
 }
@@ -81,4 +83,5 @@ interface ItemCardProps {
 		rate: number;
 		count: number;
 	};
+	onClick: (quantity: number) => void;
 }
